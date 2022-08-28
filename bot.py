@@ -13,7 +13,6 @@ async def main():
     async with Client(session="tabchi") as client:
         @client.on(handlers.MessageUpdates())
         async def tabchi(event):
-            me_text = me.user.user_guid
             if event.raw_text == 'فور' and event.message.author_object_guid in admin:
                 dialogs = await client(methods.chats.GetChats(start_id=None))
                 if dialogs.chats:
